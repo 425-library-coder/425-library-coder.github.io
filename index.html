@@ -27,12 +27,21 @@
   <div id="app">
     <span></span>
     <input type="button" value="divine">
+    <input type="range" id="" min="0" max="360">
   </div>
   <script>
     const thingies = ['yes','no','maybe'];
     
     document.querySelector("input").addEventListener("click", e => {
       document.querySelector("span").innerText = thingies[Math.floor(Math.random()*thingies.length)];
+    })
+
+    document.querySelector('input[type="range"]').addEventListener('input', e => {
+      document.querySelector(':root').setProperty('--dark', `hsl(${e.target.value}deg, 100%, 2%)`);
+      document.querySelector(':root').setProperty('--medium-dark', `hsl(${e.target.value}deg, 100%, 10%)`);
+      document.querySelector(':root').setProperty('--medium', `hsl(${e.target.value}deg, 100%, 20%)`);
+      document.querySelector(':root').setProperty('--medium-light', `hsl(${e.target.value}deg, 100%, 30%)`);
+      document.querySelector(':root').setProperty('--light', `hsl(${e.target.value}deg, 100%, 50%)`);
     })
   </script>
 
